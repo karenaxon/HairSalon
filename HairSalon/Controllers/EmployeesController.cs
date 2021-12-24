@@ -14,5 +14,11 @@ namespace HairSalon.Controllers
     {
       _db = db;
     }
+
+    public ActionResult Index()
+    {
+      List<Employee> model = _db.Employees.ToList();
+      return View(model);
+    }
   }
 }

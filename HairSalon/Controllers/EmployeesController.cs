@@ -20,5 +20,18 @@ namespace HairSalon.Controllers
       List<Employee> model = _db.Employees.ToList();
       return View(model);
     }
+
+      public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Employee employee)
+    {
+      _db.Employees.Add(employee);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

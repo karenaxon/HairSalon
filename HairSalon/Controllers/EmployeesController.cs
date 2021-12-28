@@ -33,5 +33,11 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      Employee thisEmployee = _db.Employees.FirstOrDefault(employee => employee.EmployeeId == id);
+      return View(thisEmployee);
+    }
   }
-}
+} 

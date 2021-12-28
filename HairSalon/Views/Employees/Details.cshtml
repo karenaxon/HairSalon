@@ -7,19 +7,22 @@
 
 <h2>Employee Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+
+<h3>@Html.Label("Hair Stylist:") @Html.DisplayFor(model => model.Name)<h3>
 
 <ul>
 @if (@Model.Clients.Count == 0)
 {
   <h3>No clients have been added.</h3>
 }
+</ul>
 
+<h2 class="mt-4">Clients:</h2>
 @foreach (Client client in @Model.Clients)
 {
-  <li>Client Name: @client.Name</li>
+  <li>@client.Name</li>
 }
-</ul>
+
 
 @* <p>@Html.ActionLink("Edit Employee", "Edit", new { id = Model.CategoryId })</p> *@
 <p>@Html.ActionLink("Back to employees list", "Index")</p>

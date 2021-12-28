@@ -10,10 +10,11 @@
 {
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name, "Name is required", new { @class = "text-danger" }) <br />
 
     @Html.LabelFor(model => model.Employee)
     @Html.DropDownList("EmployeeId")
-    @Html.ValidationMessageFor(model => model.Employee, "Please select an employee", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(model => model.Employee, "Select an employee", new { @class = "text-danger" }) <br />
 
     <input type="submit" value="Add new client" />
 }

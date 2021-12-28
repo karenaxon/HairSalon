@@ -14,12 +14,14 @@
 <ul>
 @if (@Model.Clients.Count == 0)
 {
-  <h4>No clients have been added.</h4>
+  <h4 class="mt-4">No clients have been added.</h4>
 }
 </ul>
 
-<h4 class="mt-4">Clients:</h4>
 @foreach (Client client in @Model.Clients)
 {
-  <li>@client.Name</li>
+  <li>@Html.Label("Client: ") @client.Name</li>
 }
+
+<h4 class="mt-4">@Html.ActionLink("Add New Client", "Create", "Clients")</h4>
+<h4 class="mt-4">@Html.ActionLink("Delete Employee", "Delete", new { id = Model.EmployeeId })</h4>

@@ -5,6 +5,7 @@
 @model HairSalon.Models.Client
 
 <h4>Add a new client</h4>
+
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
@@ -12,6 +13,7 @@
 
     @Html.LabelFor(model => model.Employee)
     @Html.DropDownList("EmployeeId")
+    @Html.ValidationMessageFor(model => model.Employee, "Please select an employee", new { @class = "text-danger" })
 
     <input type="submit" value="Add new client" />
 }

@@ -39,5 +39,20 @@ namespace HairSalon.Controllers
       Employee thisEmployee = _db.Employees.FirstOrDefault(employee => employee.EmployeeId == id);
       return View(thisEmployee);
     }
+
+    public ActionResult Delete(int id)
+    {
+      var thisEmployee = _db.Employees.FirstOrDefault(employee => employee.EmployeeId == id);
+      return View(thisEmployee);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisEmployee = _db.Employees.FirstOrDefault(category => category.EmployeeId == id);
+      _db.Employees.Remove(thisEmployee);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 } 

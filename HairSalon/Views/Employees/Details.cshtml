@@ -9,15 +9,16 @@
 <hr />
 
 <h3>@Html.Label("Hair Stylist:") @Html.DisplayFor(model => model.Name)<h3>
+<h3>@Html.Label("Employee ID:") @Html.DisplayFor(model => model.EmployeeId)<h3>
 
 <ul>
 @if (@Model.Clients.Count == 0)
 {
-  <h3>No clients have been added.</h3>
+  <h4>No clients have been added.</h4>
 }
 </ul>
 
-<h2 class="mt-4">Clients:</h2>
+<h4 class="mt-4">Clients:</h4>
 @foreach (Client client in @Model.Clients)
 {
   <li>@client.Name</li>

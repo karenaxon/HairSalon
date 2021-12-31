@@ -29,6 +29,10 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Employee employee)
     {
+      if(!ModelState.IsValid)
+      {
+        return View("Create");
+      }
       _db.Employees.Add(employee);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -49,7 +53,7 @@ namespace HairSalon.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisEmployee = _db.Employees.FirstOrDefault(category => category.EmployeeId == id);
+      var thisEmployee = _db.Employees.FirstOrDefault(employee => employee.EmployeeId == id);
       _db.Employees.Remove(thisEmployee);
       _db.SaveChanges();
       return RedirectToAction("Index");

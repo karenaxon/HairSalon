@@ -31,6 +31,10 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Client client)
     {
+      if(!ModelState.IsValid)
+      {
+        return RedirectToAction("Create");
+      }
       _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");

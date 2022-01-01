@@ -8,14 +8,13 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
-    @Html.ValidationMessageFor(model => model.Name, "Name is required", new { @class = "text-danger" }) <br />
+  @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+  @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })<br />
+  @Html.ValidationMessageFor(model => model.Name) <br />
 
-    @Html.LabelFor(model => model.Employee)
-    @Html.DropDownList("EmployeeId")
-    @Html.ValidationMessageFor(model => model.Employee, "Select an employee", new { @class = "text-danger" }) <br />
+  @Html.LabelFor(model => model.Employee)
+  @Html.DropDownList("EmployeeId")
 
-    <input type="submit" value="Add new client" />
+  <button type="submit" value="Add new client" class="btn btn-success">Submit</button>
 }
 <p>@Html.ActionLink("Show all clients", "Index")</p>

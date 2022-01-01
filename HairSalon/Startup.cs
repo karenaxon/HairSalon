@@ -13,8 +13,8 @@ namespace HairSalon
     public Startup(IWebHostEnvironment env)
     {
       var builder = new ConfigurationBuilder()
-          .SetBasePath(env.ContentRootPath)
-              .AddJsonFile("appsettings.json");
+      .SetBasePath(env.ContentRootPath)
+      .AddJsonFile("appsettings.json");
       Configuration = builder.Build();
     }
 
@@ -25,7 +25,7 @@ namespace HairSalon
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<HairSalonContext>(options => options
+      .AddDbContext<HairSalonContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
 
